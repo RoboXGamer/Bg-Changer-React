@@ -3,7 +3,20 @@ import "./App.css";
 import Button from "./components/Button";
 
 function App() {
-	const [color, setcolor] = useState("grey");
+	const colors = [
+		"white",
+		"black",
+		"red",
+		"green",
+		"blue",
+		"olive",
+		"coral",
+		"lightblue",
+		"darkblue",
+		"lightcoral",
+		"#222",
+	];
+	const [color, setColor] = useState("grey");
 
 	return (
 		<>
@@ -13,6 +26,15 @@ function App() {
 			>
 				<div className="fixed flex flex-wrap justify-center bottom-12 inset-x-0 mx-12 ">
 					<div className="flex flex-wrap gap-5 justify-center p-2 bg-slate-400 text-white shadow-lg rounded">
+						{colors.map((color) => (
+							<Button
+								key={color}
+								onClick={() => setColor(color)}
+								bgColor={color}
+								text={color}
+							/>
+						))}
+						{/*
 						<Button
 							onClick={() => setcolor("white")}
 							bgColor="white"
@@ -48,7 +70,7 @@ function App() {
 							onClick={() => setcolor("coral")}
 							bgColor="coral"
 							text="Coral"
-						></Button>
+	></Button>*/}
 					</div>
 				</div>
 			</main>
